@@ -1,16 +1,48 @@
-# Tauri + Vue 3 + TypeScript
+# Tic
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+desktop client (Mac / Windows / Linux) of [tuic](https://github.com/EAimTY/tuic)
 
-## Recommended IDE Setup
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ali322/tic)](https://github.com/ali322/tic/commits/master)
+[![GitHub Releases](https://img.shields.io/github/downloads/ali322/tic/latest/total?logo=github)](https://github.com/ali322/tic/releases)
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+## Download
 
-## Type Support For `.vue` Imports in TS
+Download from [Releases](https://github.com/ali322/tic/releases)
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+## How does Tic work
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+Tic provides a GUI to generate the config file for tuic. It includes tuic's binary executable in the app bundle. 
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+## Usage
+
+1. add your own server config
+2. press `run` to start xray
+3. get full details of log in logger
+
+## Devlopment
+
+- make start
+
+## Build
+
+- make build
+
+opitimize bin file
+
+- make opz 
+
+copy app to /Applications (mac only)
+
+- make cp
+
+## Disclaimer
+
+This tool is mainly for personal usage. For professional users and technique 
+support, commercial software like proxifier is recommended.
+
+The developer currently does not have enough time to add more features to Nave, nor to merge PRs. However, forking and releasing your own version are always welcome.
+
+
+## License
+
+[MIT License](http://en.wikipedia.org/wiki/MIT_License)

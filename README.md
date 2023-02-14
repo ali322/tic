@@ -40,7 +40,7 @@ copy app to /Applications (mac only)
 This tool is mainly for personal usage. For professional users and technique 
 support, commercial software like proxifier is recommended.
 
-The developer currently does not have enough time to add more features to Nave, nor to merge PRs. However, forking and releasing your own version are always welcome.
+The developer currently does not have enough time to add more features to Tic, nor to merge PRs. However, forking and releasing your own version are always welcome.
 
 
 ## License

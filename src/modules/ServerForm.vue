@@ -38,6 +38,18 @@
     </div>
     <div class="px-4">
       <div class="flex items-center py-2 text-left">
+        <label class="mr-6 text-gray-500 w-20 text-sm">UUID</label>
+        <input
+          type="text"
+          spellcheck="false"
+          :disabled="running"
+          v-model="uuid"
+          class="leading-7 rounded border border-gray-300 text-sm px-2 w-64 disabled:text-gray-500"
+        />
+      </div>
+    </div>
+    <div class="px-4">
+      <div class="flex items-center py-2 text-left">
         <label class="mr-6 text-gray-500 w-20 text-sm">Password</label>
         <input
           type="password"
@@ -102,6 +114,15 @@ const port = computed({
   },
   set(val) {
     server.value.port = val
+    onServerUpdate()
+  }
+})
+const uuid = computed({
+  get() {
+    return server.value.uuid
+  },
+  set(val) {
+    server.value.uuid = val
     onServerUpdate()
   }
 })

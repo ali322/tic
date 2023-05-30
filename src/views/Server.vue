@@ -57,10 +57,10 @@ event.listen('sidecar-running', (evt: { payload: string }) => {
 const startOne = async () => {
   const server = servers.value[selected.value]
   let conf = Object.assign({}, baseConf)
-  conf.local.port = socksPort.value
-  conf.relay.server = server.address
-  conf.relay.port = parseInt(server.port)
-  conf.relay.token = server.password
+  conf.local.server = `[::]:${socksPort.value}`
+  conf.relay.server = `${server.address}:${parseInt(server.port)}`
+  conf.relay.password = server.password
+  conf.relay.uuid = server.uuid
   tauri.invoke('run_sidecar', { config: JSON.stringify(conf, null, 2) })
   running.value = true
 }

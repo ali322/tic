@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "Tic",
-    "version": "1.0.2"
+    "version": "1.0.3"
   },
   "tauri": {
     "pattern": {
@@ -26,10 +26,8 @@
         "all": false,
         "sidecar": true,
         "scope": [
-          {
-            "name": "bin/tuic",
-            "sidecar": true
-          }
+          { "name": "bin/tuic", "sidecar": true },
+          { "name": "bin/clash", "sidecar": true }
         ]
       }
     },
@@ -41,7 +39,7 @@
         "depends": []
       },
       "externalBin": [
-        "bin/tuic"
+        "bin/tuic", "bin/clash"
       ],
       "icon": [
         "icons/32x32.png",

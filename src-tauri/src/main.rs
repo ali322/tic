@@ -5,6 +5,7 @@
 
 mod command;
 mod menu;
+mod sysproxy;
 
 fn main() {
   let mut builder = tauri::Builder::default();

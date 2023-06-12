@@ -3,6 +3,7 @@ export const baseConf = {
     server: "la.alichen.top:3443",
     uuid: "abc",
     password: "foo",
+    udp_relay_mode: 'native',
     congestion_control: "bbr",
     alpn: ["h3", "spdy/3.1"],
   },

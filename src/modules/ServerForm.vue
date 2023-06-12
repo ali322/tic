@@ -2,7 +2,7 @@
   <div class="py-2 flex-1">
     <div class="flex px-4 pb-2 pt-2 justify-end items-center">
       <div class="flex-1 text-left flex">
-        <label class="mr-6 text-gray-500 w-20">Tag</label>
+        <label class="mr-6 text-gray-500 w-28">Tag</label>
         <input type="text" spellcheck="false" :disabled="running" v-model="tag"
           class="leading-7 rounded border border-gray-300 text-sm px-2 w-20 disabled:text-gray-500" />
       </div>
@@ -14,7 +14,7 @@
     </div>
     <div class="px-4">
       <div class="flex items-center py-2 text-left">
-        <label class="mr-6 text-gray-500 w-20 text-sm">Address</label>
+        <label class="mr-6 text-gray-500 w-28 text-sm">Address</label>
         <input
           type="text"
           spellcheck="false"
@@ -26,7 +26,7 @@
     </div>
     <div class="px-4">
       <div class="flex items-center py-2 text-left">
-        <label class="mr-6 text-gray-500 w-20 text-sm">Port</label>
+        <label class="mr-6 text-gray-500 w-28 text-sm">Port</label>
         <input
           type="text"
           spellcheck="false"
@@ -38,7 +38,7 @@
     </div>
     <div class="px-4">
       <div class="flex items-center py-2 text-left">
-        <label class="mr-6 text-gray-500 w-20 text-sm">UUID</label>
+        <label class="mr-6 text-gray-500 w-28 text-sm">UUID</label>
         <input
           type="text"
           spellcheck="false"
@@ -50,7 +50,7 @@
     </div>
     <div class="px-4">
       <div class="flex items-center py-2 text-left">
-        <label class="mr-6 text-gray-500 w-20 text-sm">Password</label>
+        <label class="mr-6 text-gray-500 w-28 text-sm">Password</label>
         <input
           type="password"
           spellcheck="false"
@@ -58,6 +58,25 @@
           v-model="password"
           class="leading-7 rounded border border-gray-300 text-sm px-2 w-64 disabled:text-gray-500"
         />
+      </div>
+    </div>
+    <div class="px-4">
+      <div class="flex items-center py-2 text-left">
+        <label class="mr-6 text-gray-500 w-28 text-sm">CongestionControl</label>
+        <Select id="fl" class="rounded w-56" v-model:value="congestionControl" :disabled="running">
+          <Option value="bbr">bbr</Option>
+          <Option value="new_reno">new_reno</Option>
+          <Option value="cubic">cubic</Option>
+        </Select>
+      </div>
+    </div>
+    <div class="px-4">
+      <div class="flex items-center py-2 text-left">
+        <label class="mr-6 text-gray-500 w-28 text-sm">UDP RelayMode</label>
+        <Select id="fl" class="rounded w-56" v-model:value="udpRelayMode" :disabled="running">
+          <Option value="quic">quic</Option>
+          <Option value="native">native</Option>
+        </Select>
       </div>
     </div>
     <Toast ref="toastRef" />
@@ -70,6 +89,8 @@ import { toRefs, ref, computed } from 'vue'
 import { debounce } from 'ts-debounce'
 import { PlayArrowRound, StopRound } from '@vicons/material'
 import Toast from '@/components/Toast.vue'
+import Select from '@/components/Select.vue'
+import Option from '@/components/Option.vue'
 
 interface Props {
   server: Record<string, any>,
@@ -132,6 +153,24 @@ const password = computed({
   },
   set(val) {
     server.value.password = val
+    onServerUpdate()
+  }
+})
+const congestionControl = computed({
+  get() {
+    return server.value.congestionControl || 'bbr'
+  },
+  set(val) {
+    server.value.congestionControl = val
+    onServerUpdate()
+  }
+})
+const udpRelayMode = computed({
+  get() {
+    return server.value.udpRelayMode || 'native'
+  },
+  set(val) {
+    server.value.udpRelayMode = val
     onServerUpdate()
   }
 })

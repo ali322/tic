@@ -63,6 +63,8 @@ const startOne = async () => {
   conf.relay.server = `${server.address}:${parseInt(server.port)}`
   conf.relay.password = server.password
   conf.relay.uuid = server.uuid
+  conf.relay.congestion_control = server.congestionControl || 'bbr'
+  conf.relay.udp_relay_mode = server.udpRelayMode || 'native'
   tauri.invoke('run_sidecar', { config: JSON.stringify(conf, null, 2) })
   const next = clashSettings(socksPort.value, relayPort.value, resDir)
   tauri.invoke('run_clash', {config: next})
